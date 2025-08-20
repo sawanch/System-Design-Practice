@@ -28,5 +28,35 @@ The ATM System Design simulates the working of an Automated Teller Machine with 
 
 ---
 
+### 2. Parking Lot System Design (`Parking-Lot/`)
+
+**Overview:**  
+The Parking Lot System manages the allocation and release of parking spots, calculates parking fees, and ensures smooth handling of vehicles with different types and constraints.  
+
+**Key Features:**  
+- **Spot Management:** Assigns available spots based on vehicle type and releases them when customers exit.  
+- **Ticket & Fee Calculation:** Uses entry and exit times to calculate fees (default $10/hour).  
+- **Custom Exceptions:**  
+  - `InvalidLicenseException` → Raised when license plate is null/empty.  
+  - `InvalidVehicleTypeException` → Raised when vehicle type does not match the spot.  
+- **Persistence:** Integrated with **SQLite database** via DAO to store and retrieve parking spot data.  
+- **Testability:**  
+  - JUnit + Mockito for unit testing.  
+  - Jacoco integrated for code coverage reports.  
+
+**Design Components:**  
+- **Customer Class** → Holds vehicle details, license, entry/exit time.  
+- **ParkingSpot Class** → Represents individual parking spots with occupancy status.  
+- **ParkingLotSystemImpl Class** → Core system handling allocation, release, and fee calculation.  
+- **TicketFeesSystemImpl Class** → Responsible for computing parking charges.  
+- **ParkingSpotDAO Class** → Manages persistence using SQLite DB.  
+- **Custom Exceptions** → Handle invalid input gracefully.  
+
+---
+
 ## ✨ Purpose
-To practice **object-oriented design and coding**.
+To practice **object-oriented design and coding** with a focus on:  
+- Encapsulation, Abstraction, and Extensibility.  
+- Error handling through **custom exceptions**.  
+- Integrating **databases (SQLite)** for persistence.  
+- Writing **unit tests with JUnit + Mockito** for robust verification.  
